@@ -22,9 +22,12 @@ Citizen.CreateThread(function()
 
         if ESX and ESX.PlayerData and ESX.PlayerData.job and ESX.PlayerData.job.name ~= "police" and ESX.PlayerData.job.name ~= "ambulance" then
             if IsModelInTable(vehicleModel, Config.CopCars) or IsModelInTable(vehicleModel, Config.AmbulanceCars) then
-                ESX.ShowNotification(Locales[Config.Locale]['warning'])
-                Citizen.Wait(Config.Wait)
-                TaskLeaveVehicle(playerPed, vehicle, 1)
+                local driverSeat = GetPedInVehicleSeat(vehicle, -1)
+                if driverSeat == playerPed then
+                    ESX.ShowNotification(Locales[Config.Locale]['warning'])
+                    Citizen.Wait(Config.Wait)
+                    TaskLeaveVehicle(playerPed, vehicle, 1)
+                end
             end
         end
     end
