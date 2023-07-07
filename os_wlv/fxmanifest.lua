@@ -3,7 +3,7 @@ games { 'gta5' }
 
 author 'OnlyScripts / VeryAppropriateName#2324'
 description 'Whitelisted Vehicles (WLV)'
-version '1.0.0'
+version '1.2.0'
 
 shared_script '@es_extended/imports.lua'
 
